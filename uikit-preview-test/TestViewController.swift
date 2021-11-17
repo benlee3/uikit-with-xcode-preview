@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  TestViewController.swift
 //  uikit-preview-test
 //
 //  Created by Ben Lee on 11/17/21.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class TestViewController: UIViewController {
     var testView: TestView?
     
     override func viewDidLoad() {
@@ -27,7 +27,4 @@ class ViewController: UIViewController {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-
 }
-

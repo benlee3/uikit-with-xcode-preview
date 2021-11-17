@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		78F7803E2745901100BE44F6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78F7803D2745901100BE44F6 /* AppDelegate.swift */; };
 		78F780402745901100BE44F6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78F7803F2745901100BE44F6 /* SceneDelegate.swift */; };
-		78F780422745901100BE44F6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78F780412745901100BE44F6 /* ViewController.swift */; };
+		78F780422745901100BE44F6 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78F780412745901100BE44F6 /* TestViewController.swift */; };
 		78F780472745901200BE44F6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 78F780462745901200BE44F6 /* Assets.xcassets */; };
 		78F7804A2745901200BE44F6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 78F780482745901200BE44F6 /* LaunchScreen.storyboard */; };
 		78F780532745909B00BE44F6 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78F780522745909B00BE44F6 /* TestView.swift */; };
@@ -20,7 +20,7 @@
 		78F7803A2745901100BE44F6 /* uikit-preview-test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "uikit-preview-test.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		78F7803D2745901100BE44F6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		78F7803F2745901100BE44F6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		78F780412745901100BE44F6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		78F780412745901100BE44F6 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		78F780462745901200BE44F6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		78F780492745901200BE44F6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		78F7804B2745901200BE44F6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -61,7 +61,7 @@
 				78F78054274592A900BE44F6 /* Extensions */,
 				78F7803D2745901100BE44F6 /* AppDelegate.swift */,
 				78F7803F2745901100BE44F6 /* SceneDelegate.swift */,
-				78F780412745901100BE44F6 /* ViewController.swift */,
+				78F780412745901100BE44F6 /* TestViewController.swift */,
 				78F780512745907E00BE44F6 /* TestView */,
 				78F780462745901200BE44F6 /* Assets.xcassets */,
 				78F780482745901200BE44F6 /* LaunchScreen.storyboard */,
@@ -157,7 +157,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				78F780532745909B00BE44F6 /* TestView.swift in Sources */,
-				78F780422745901100BE44F6 /* ViewController.swift in Sources */,
+				78F780422745901100BE44F6 /* TestViewController.swift in Sources */,
 				78F7803E2745901100BE44F6 /* AppDelegate.swift in Sources */,
 				78F780402745901100BE44F6 /* SceneDelegate.swift in Sources */,
 				78F78056274592CF00BE44F6 /* UIView+Anchor.swift.swift in Sources */,

@@ -48,3 +48,22 @@ class TestView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
 }
+
+#if canImport(SwiftUI) && DEBUG
+import SwiftUI
+struct TestViewViewRepresentable: UIViewRepresentable {
+    func makeUIView(context: Context) -> some UIView {
+        return TestView()
+    }
+    
+    func updateUIView(_ uiView: UIViewType, context: Context) {
+    }
+}
+
+@available(iOS 13.0, *)
+struct TestViewController_Preview: PreviewProvider {
+    static var previews: some View {
+        TestViewViewRepresentable()
+    }
+}
+#endif
