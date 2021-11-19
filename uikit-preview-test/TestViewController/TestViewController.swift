@@ -12,6 +12,7 @@ class TestViewController: UIViewController {
     var testView: TestView?
     var state: AppState
     var cancellables = Set<AnyCancellable>()
+    weak var coordinator: MainCoordinator?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,10 +32,8 @@ class TestViewController: UIViewController {
     
     func setupSinksAndTargets() {
         testView?.button.addTarget(self, action: #selector(increaseCount), for: .touchUpInside)
+        testView?.secondViewButton.addTarget(self, action: #selector(goToSecondViewController), for: .touchUpInside)
         state.$count.sink { [weak self] in
-            print("in sink")
-            print("current value: \(self?.state.count)")
-            print("new value: \($0)")
             self?.testView?.counter.text = String($0)
         }.store(in: &cancellables)
     }
@@ -42,6 +41,10 @@ class TestViewController: UIViewController {
     @objc func increaseCount() {
         print("in increaseCount()")
         state.count += 1
+    }
+    
+    @objc func goToSecondViewController() {
+        coordinator?.showSecondViewController()
     }
     
     required init?(coder: NSCoder) {

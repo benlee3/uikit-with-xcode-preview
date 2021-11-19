@@ -21,7 +21,7 @@ extension UIView {
     }
     
     @discardableResult
-    func anchor(top: NSLayoutYAxisAnchor? = nil, left: NSLayoutXAxisAnchor? = nil, bottom: NSLayoutYAxisAnchor? = nil, right: NSLayoutXAxisAnchor? = nil, topConstant: CGFloat = 0, leftConstant: CGFloat = 0, bottomConstant: CGFloat = 0, rightConstant: CGFloat = 0, widthConstant: CGFloat = 0, heightConstant: CGFloat = 0) -> [NSLayoutConstraint] {
+    func anchor(top: NSLayoutYAxisAnchor? = nil, left: NSLayoutXAxisAnchor? = nil, bottom: NSLayoutYAxisAnchor? = nil, right: NSLayoutXAxisAnchor? = nil, topConstant: CGFloat = 0, leftConstant: CGFloat = 0, bottomConstant: CGFloat = 0, rightConstant: CGFloat = 0, widthConstant: CGFloat = 0, heightConstant: CGFloat = 0, centerXanchor: NSLayoutXAxisAnchor? = nil, centerYanchor: NSLayoutYAxisAnchor? = nil) -> [NSLayoutConstraint] {
         translatesAutoresizingMaskIntoConstraints = false
         
         var anchors = [NSLayoutConstraint]()
@@ -48,6 +48,14 @@ extension UIView {
         
         if heightConstant > 0 {
             anchors.append(heightAnchor.constraint(equalToConstant: heightConstant))
+        }
+        
+        if let centerXanchor = centerXanchor {
+            anchors.append(centerXAnchor.constraint(equalTo: centerXanchor))
+        }
+        
+        if let centerYanchor = centerYanchor {
+            anchors.append(centerYAnchor.constraint(equalTo: centerYanchor))
         }
         
         anchors.forEach({$0.isActive = true})

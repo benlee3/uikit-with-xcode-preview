@@ -1,14 +1,14 @@
 //
-//  TestView.swift
+//  SecondView.swift
 //  uikit-preview-test
 //
-//  Created by Ben Lee on 11/17/21.
+//  Created by Ben Lee on 11/19/21.
 //
 
-import Foundation
 import UIKit
 
-class TestView: UIView {
+class SecondView: UIView {
+    
     let container: UIStackView = {
         let stack = UIStackView()
         stack.axis = .vertical
@@ -21,19 +21,12 @@ class TestView: UIView {
     
     let label: UILabel = {
         let label = UILabel()
-        label.text = "Hello, World!"
+        label.text = "0"
         label.font = .systemFont(ofSize: 20)
         
         return label
     }()
     
-//    let image: UIImageView = {
-//        let imageView = UIImageView()
-//        imageView.image = UIImage(named: "hello-world-php")
-//        imageView.translatesAutoresizingMaskIntoConstraints = false
-//
-//        return imageView
-//    }()
     let button: UIButton = {
         let button = UIButton()
         button.setTitle("Increase Count!", for: .normal)
@@ -42,20 +35,12 @@ class TestView: UIView {
         return button
     }()
     
-    let counter: UILabel = {
-        let label = UILabel()
-        label.text = "0"
-        label.font = .systemFont(ofSize: 20)
-        
-        return label
-    }()
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.addSubview(container)
+        self.backgroundColor = .white
         container.anchor(top: self.safeAreaLayoutGuide.topAnchor, left: self.safeAreaLayoutGuide.leftAnchor, bottom: self.safeAreaLayoutGuide.bottomAnchor, right: self.safeAreaLayoutGuide.rightAnchor)
         container.addArrangedSubview(label)
-        container.addArrangedSubview(counter)
         container.addArrangedSubview(button)
     }
     
@@ -66,9 +51,9 @@ class TestView: UIView {
 
 #if canImport(SwiftUI) && DEBUG
 import SwiftUI
-struct TestViewViewRepresentable: UIViewRepresentable {
+struct SecondViewViewRepresentable: UIViewRepresentable {
     func makeUIView(context: Context) -> some UIView {
-        return TestView()
+        return SecondView()
     }
     
     func updateUIView(_ uiView: UIViewType, context: Context) {
@@ -76,9 +61,9 @@ struct TestViewViewRepresentable: UIViewRepresentable {
 }
 
 @available(iOS 13.0, *)
-struct TestViewController_Preview: PreviewProvider {
+struct SecondViewController_Preview: PreviewProvider {
     static var previews: some View {
-        TestViewViewRepresentable()
+        SecondViewViewRepresentable()
     }
 }
 #endif

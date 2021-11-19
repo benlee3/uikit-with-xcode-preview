@@ -16,3 +16,7 @@ class AppState {
         count = 0
     }
 }
+
+protocol StateRequired {
+    var state: AppState { get }
+}
