@@ -12,7 +12,7 @@ class TestView: UIView {
     let container: UIStackView = {
         let stack = UIStackView()
         stack.axis = .vertical
-        stack.distribution = .fill
+        stack.distribution = .equalSpacing
         stack.alignment = .center
         stack.backgroundColor = .white
         
@@ -27,13 +27,27 @@ class TestView: UIView {
         return label
     }()
     
-    let image: UIImageView = {
-        let imageView = UIImageView()
-        imageView.image = UIImage(named: "hello-world-php")
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-//        imageView.anchor(widthConstant: 100, heightConstant: 20)
+//    let image: UIImageView = {
+//        let imageView = UIImageView()
+//        imageView.image = UIImage(named: "hello-world-php")
+//        imageView.translatesAutoresizingMaskIntoConstraints = false
+//
+//        return imageView
+//    }()
+    let button: UIButton = {
+        let button = UIButton()
+        button.setTitle("Increase Count!", for: .normal)
+        button.anchor(widthConstant: 200, heightConstant: 70)
+        button.backgroundColor = .systemBlue
+        return button
+    }()
+    
+    let counter: UILabel = {
+        let label = UILabel()
+        label.text = "0"
+        label.font = .systemFont(ofSize: 20)
         
-        return imageView
+        return label
     }()
     
     override init(frame: CGRect) {
@@ -41,7 +55,8 @@ class TestView: UIView {
         self.addSubview(container)
         container.anchor(top: self.safeAreaLayoutGuide.topAnchor, left: self.safeAreaLayoutGuide.leftAnchor, bottom: self.safeAreaLayoutGuide.bottomAnchor, right: self.safeAreaLayoutGuide.rightAnchor)
         container.addArrangedSubview(label)
-        container.addArrangedSubview(image)
+        container.addArrangedSubview(counter)
+        container.addArrangedSubview(button)
     }
     
     required init?(coder: NSCoder) {
