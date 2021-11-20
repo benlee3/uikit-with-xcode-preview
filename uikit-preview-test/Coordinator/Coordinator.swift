@@ -29,10 +29,10 @@ class MainCoordinator: Coordinator {
     }
     
     func start() {
-        let vc = TestViewController(state: self.state)
+        let vc = FirstViewController(state: self.state)
         vc.coordinator = self
         navigationController.pushViewController(vc, animated: false)
-        Timer.publish(every: 2, on: .main, in: .common)
+        Timer.publish(every: 1, on: .main, in: .common)
             .autoconnect()
             .sink { [weak self] _ in
                 self?.state.count += 1

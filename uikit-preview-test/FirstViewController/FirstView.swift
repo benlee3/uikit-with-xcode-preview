@@ -1,5 +1,5 @@
 //
-//  TestView.swift
+//  FirstView.swift
 //  uikit-preview-test
 //
 //  Created by Ben Lee on 11/17/21.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TestView: UIView {
+class FirstView: UIView {
     let container: UIStackView = {
         let stack = UIStackView()
         stack.axis = .vertical
@@ -38,7 +38,7 @@ class TestView: UIView {
     let secondViewButton: UIButton = {
         let button = UIButton()
         button.setTitle("Go to SecondViewController", for: .normal)
-        button.anchor(widthConstant: 200, heightConstant: 70)
+        button.anchor(heightConstant: 70)
         button.backgroundColor = .systemBlue
         return button
     }()
@@ -69,9 +69,9 @@ class TestView: UIView {
 
 #if canImport(SwiftUI) && DEBUG
 import SwiftUI
-struct TestViewViewRepresentable: UIViewRepresentable {
+struct FirstViewViewRepresentable: UIViewRepresentable {
     func makeUIView(context: Context) -> some UIView {
-        return TestView()
+        return FirstView()
     }
     
     func updateUIView(_ uiView: UIViewType, context: Context) {
@@ -79,9 +79,9 @@ struct TestViewViewRepresentable: UIViewRepresentable {
 }
 
 @available(iOS 13.0, *)
-struct TestViewController_Preview: PreviewProvider {
+struct FirstViewController_Preview: PreviewProvider {
     static var previews: some View {
-        TestViewViewRepresentable()
+        FirstViewViewRepresentable()
     }
 }
 #endif

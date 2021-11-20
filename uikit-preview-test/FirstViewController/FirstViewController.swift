@@ -1,5 +1,5 @@
 //
-//  TestViewController.swift
+//  FirstViewController.swift
 //  uikit-preview-test
 //
 //  Created by Ben Lee on 11/17/21.
@@ -8,8 +8,8 @@
 import Combine
 import UIKit
 
-class TestViewController: UIViewController {
-    var testView: TestView?
+class FirstViewController: UIViewController {
+    var testView: FirstView?
     var state: AppState
     var cancellables = Set<AnyCancellable>()
     weak var coordinator: MainCoordinator?
@@ -20,7 +20,7 @@ class TestViewController: UIViewController {
     }
     
     override func loadView() {
-        testView = TestView()
+        testView = FirstView()
         view = testView
         setupSinksAndTargets()
     }
