@@ -1,5 +1,5 @@
 # Demo iOS App Learnings
-This project is just a sandbox environment for me to play around with various app architectures, patterns, and tools. Things I hope to work on in this project are (but not limited to):
+This project started off as a way to test Xcode previews but is now just a sandbox environment for me to play around with various app architectures, patterns, and tools. Things I hope to work on in this project are (but not limited to):
 - Utilizing [Xcode previews for UIKit based views](https://www.avanderlee.com/xcode/xcode-previews/) (by wrapping them in SwiftUI views)
   - This was stupid easy
 - Utilizing the [Coordinator Pattern](https://www.hackingwithswift.com/articles/71/how-to-use-the-coordinator-pattern-in-ios-apps) for screen navigation
