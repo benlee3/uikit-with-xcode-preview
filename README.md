@@ -10,6 +10,8 @@ This project started off as a way to test Xcode previews but is now just a sandb
   - Haven't figured out a good way to reconcile this with the MVVM architecture yet
 - Utilizing [MVVM](https://www.swiftbysundell.com/articles/different-flavors-of-view-models-in-swift/)
   - Haven't introduced this into the project yet
+- Utilizing [async/await](https://docs.swift.org/swift-book/LanguageGuide/Concurrency.html)
+  - Not yet...😔
 
 ## Random notes
-- While fiddling around with the Coordinator, I made a cool helper function to see if a UIViewController exists in a navigation stack and to pop right to it. This is something I'm going to keep with me forever. It also forced me to freshen up on my understanding of [Swift metatypes](https://swiftrocks.com/whats-type-and-self-swift-metatypes)
+- While fiddling around with the Coordinator, I made a ~~cool~~ *(maybe only I think it's cool)* [helper function](https://github.com/benlee3/uikit-with-xcode-preview/blob/main/uikit-preview-test/Coordinator/Coordinator.swift#L71) to see if a UIViewController exists in a navigation stack and to pop right to it. This is something I'm going to keep with me forever. It forced me to freshen up on my understanding of [Swift Metatypes](https://swiftrocks.com/whats-type-and-self-swift-metatypes) as well as [Swift Generics](https://docs.swift.org/swift-book/LanguageGuide/Generics.html)
