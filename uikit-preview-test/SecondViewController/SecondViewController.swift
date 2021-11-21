@@ -36,6 +36,7 @@ class SecondViewController: UIViewController {
     
     func setupSinksAndTargets() {
         secondView?.button.addTarget(self, action: #selector(increaseCount), for: .touchUpInside)
+        secondView?.button2.addTarget(self, action: #selector(goToFirstView), for: .touchUpInside)
         state.$count.sink { [weak self] in
             self?.secondView?.label.text = String($0)
         }.store(in: &cancellables)
@@ -43,5 +44,9 @@ class SecondViewController: UIViewController {
     
     @objc func increaseCount() {
         state.count += 1
+    }
+    
+    @objc func goToFirstView() {
+        coordinator?.showFirstViewController()
     }
 }

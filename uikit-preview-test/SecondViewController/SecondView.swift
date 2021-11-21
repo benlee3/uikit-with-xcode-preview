@@ -35,6 +35,14 @@ class SecondView: UIView {
         return button
     }()
     
+    let button2: UIButton = {
+        let button = UIButton()
+        button.setTitle("Go to first view controller", for: .normal)
+        button.anchor(heightConstant: 70)
+        button.backgroundColor = .systemBlue
+        return button
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.addSubview(container)
@@ -42,6 +50,7 @@ class SecondView: UIView {
         container.anchor(top: self.safeAreaLayoutGuide.topAnchor, left: self.safeAreaLayoutGuide.leftAnchor, bottom: self.safeAreaLayoutGuide.bottomAnchor, right: self.safeAreaLayoutGuide.rightAnchor)
         container.addArrangedSubview(label)
         container.addArrangedSubview(button)
+        container.addArrangedSubview(button2)
     }
     
     required init?(coder: NSCoder) {
