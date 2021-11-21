@@ -14,14 +14,8 @@ class CounterViewModel {
     
     init(state: AppState) {
         self.state = state
-//        state.objectWillChange.sink {
-//
-//        }
     }
 }
 
-extension CounterViewModel {
-//    var counterValue: Int {
-//
-//    }
-}
+//extension CounterViewModel {
+//}

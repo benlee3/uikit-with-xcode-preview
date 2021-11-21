@@ -39,7 +39,6 @@ class FirstViewController: UIViewController {
     }
     
     @objc func increaseCount() {
-        print("in increaseCount()")
         state.count += 1
     }
     
