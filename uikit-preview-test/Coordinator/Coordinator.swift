@@ -61,13 +61,12 @@ class MainCoordinator: Coordinator {
 }
 
 extension Coordinator {
-    // Want to have a function that can take in any TYPE of view controller to search the navigation stack for
+    // Want to have a function that can take in any type of view controller to search the navigation stack for
     // In order to do this we have to use generics
-    // We specify a generic, T, with a type constraint which says it must be of type UIViewController
-    // Read documentation here: https://docs.swift.org/swift-book/LanguageGuide/Generics.html
-    //
-    // One possible "bad" assumption made here is that if there are multiple VCs of the same type on the navigation stack, we will always pop to the first instance of it.
-    // I made this assumption for the sake of not overcomplicating this example, but it may be worth investingating further in the future
+    // We specify a generic, T, with a type constraint which says T must be of type UIViewController
+    // Documentation on Generics: https://docs.swift.org/swift-book/LanguageGuide/Generics.html
+    
+    // One possible "bad" assumption made here is that if there are multiple VCs of the same type on the navigation stack, we will always pop to the first instance of it. Did this just for simplicity's sake
     func checkNavigationStack<T: UIViewController>(for viewControllerType: T.Type) -> UIViewController? {
         let firstViewController = navigationController.viewControllers.compactMap {
             $0 as? T
