@@ -7,9 +7,9 @@ This project started off as a way to test Xcode previews but is now just a sandb
 - Modeling app state with a [Store architecture](https://www.pointfree.co/collections/composable-architecture/reducers-and-stores)
   - Still WIP - there is a single state class being centralized by the Coordinator that is being passed into each VC being presented. Need to abstract this into a "store" with a reducer handling updates to state
 - Utilizing [Combine](https://developer.apple.com/documentation/combine) (particularly the [Published property wrapper](https://developer.apple.com/documentation/combine/published)) in order to drive real-time UI updates by binding the UI to state
-  - Haven't figured out a good way to reconcile this with the MVVM architecture yet
+  - WIP
 - Utilizing [MVVM](https://www.swiftbysundell.com/articles/different-flavors-of-view-models-in-swift/)
-  - Haven't introduced this into the project yet
+  - WIP
 - Utilizing [async/await](https://docs.swift.org/swift-book/LanguageGuide/Concurrency.html)
   - Not yet...😔
 
