@@ -1,5 +1,5 @@
 # Demo iOS App Learnings
-This project started off as a way to test Xcode previews but is now just a sandbox environment for me to play around with various app architectures, patterns, and tools. Things I hope to work on in this project are (but not limited to):
+This project started off as a way to test Xcode previews but is now just a sandbox environment to play around with various app architectures, patterns, and tools. Things I'm currently working on in this project are:
 - Utilizing [Xcode previews for UIKit based views](https://www.avanderlee.com/xcode/xcode-previews/) (by wrapping them in SwiftUI views)
   - This was stupid easy
   - ![image](https://user-images.githubusercontent.com/10534528/142751377-21e236a3-da95-47a0-a02f-8969819fd114.png)
