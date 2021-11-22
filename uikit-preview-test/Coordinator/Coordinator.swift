@@ -29,7 +29,7 @@ class MainCoordinator: Coordinator {
     }
     
     func start() {
-        let vc = FirstViewController(state: self.state)
+        let vc = FirstViewController(state: self.state, counterViewModel: CounterViewModel(state: self.state))
         vc.coordinator = self
         navigationController.pushViewController(vc, animated: false)
         Timer.publish(every: 1, on: .main, in: .common)
@@ -43,14 +43,14 @@ class MainCoordinator: Coordinator {
         if let viewController = checkNavigationStack(for: FirstViewController.self) {
             navigationController.popToViewController(viewController, animated: true)
         } else {
-            let vc = FirstViewController(state: self.state)
+            let vc = FirstViewController(state: self.state, counterViewModel: CounterViewModel(state: self.state))
             vc.coordinator = self
             navigationController.pushViewController(vc, animated: true)
         }
     }
     
     func showSecondViewController() {
-        let vc = SecondViewController(state: self.state)
+        let vc = SecondViewController(state: self.state, counterViewModel: CounterViewModel(state: self.state))
         vc.coordinator = self
         navigationController.pushViewController(vc, animated: true)
     }

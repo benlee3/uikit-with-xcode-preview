@@ -10,6 +10,7 @@ import UIKit
 
 class SecondViewController: UIViewController {
     var secondView: SecondView?
+    var counterViewModel: CounterViewModel
     var state: AppState
     var cancellables = Set<AnyCancellable>()
     weak var coordinator: MainCoordinator?
@@ -17,16 +18,17 @@ class SecondViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        setupView()
     }
     
     override func loadView() {
         secondView = SecondView()
         view = secondView
-        setupSinksAndTargets()
     }
     
-    init(state: AppState) {
+    init(state: AppState, counterViewModel: CounterViewModel) {
         self.state = state
+        self.counterViewModel = counterViewModel
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -34,12 +36,18 @@ class SecondViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setupSinksAndTargets() {
+    func setupView() {
         secondView?.button.addTarget(self, action: #selector(increaseCount), for: .touchUpInside)
         secondView?.button2.addTarget(self, action: #selector(goToFirstView), for: .touchUpInside)
-        state.$count.sink { [weak self] in
-            self?.secondView?.label.text = String($0)
+        bindToViewModel()
+        self.counterViewModel.objectWillChange.sink {
+            self.bindToViewModel()
         }.store(in: &cancellables)
+    }
+    
+    func bindToViewModel() {
+        secondView?.label.text = counterViewModel.countLabelText
+        view.setNeedsLayout() // Not necessary for this example, but will be when creating new views or destorying views which requires the view to be laid out again
     }
     
     @objc func increaseCount() {

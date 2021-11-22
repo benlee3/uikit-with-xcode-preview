@@ -9,7 +9,8 @@ import Combine
 import UIKit
 
 class FirstViewController: UIViewController {
-    var testView: FirstView?
+    var firstView: FirstView?
+    var counterViewModel: CounterViewModel
     var state: AppState
     var cancellables = Set<AnyCancellable>()
     weak var coordinator: MainCoordinator?
@@ -17,25 +18,33 @@ class FirstViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        setupView()
     }
     
     override func loadView() {
-        testView = FirstView()
-        view = testView
-        setupSinksAndTargets()
+        firstView = FirstView()
+        view = firstView
     }
     
-    init(state: AppState) {
+    init(state: AppState, counterViewModel: CounterViewModel) {
         self.state = state
+        self.counterViewModel = counterViewModel
         super.init(nibName: nil, bundle: nil)
     }
     
-    func setupSinksAndTargets() {
-        testView?.button.addTarget(self, action: #selector(increaseCount), for: .touchUpInside)
-        testView?.secondViewButton.addTarget(self, action: #selector(goToSecondViewController), for: .touchUpInside)
-        state.$count.sink { [weak self] in
-            self?.testView?.counter.text = String($0)
+    func setupView() {
+        firstView?.button.addTarget(self, action: #selector(increaseCount), for: .touchUpInside)
+        firstView?.secondViewButton.addTarget(self, action: #selector(goToSecondViewController), for: .touchUpInside)
+        bindToViewModel()
+
+        self.counterViewModel.objectWillChange.sink {
+            self.bindToViewModel()
         }.store(in: &cancellables)
+    }
+    
+    func bindToViewModel() {
+        firstView?.counter.text = counterViewModel.countLabelText
+        view.setNeedsLayout() // Not necessary for this example, but will be when creating new views or destorying views which requires the view to be laid out again
     }
     
     @objc func increaseCount() {
