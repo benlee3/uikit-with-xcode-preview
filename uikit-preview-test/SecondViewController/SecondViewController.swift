@@ -11,7 +11,6 @@ import UIKit
 class SecondViewController: UIViewController {
     var secondView: SecondView?
     var counterViewModel: CounterViewModel
-    var state: AppState
     var cancellables = Set<AnyCancellable>()
     weak var coordinator: MainCoordinator?
     
@@ -26,8 +25,7 @@ class SecondViewController: UIViewController {
         view = secondView
     }
     
-    init(state: AppState, counterViewModel: CounterViewModel) {
-        self.state = state
+    init(counterViewModel: CounterViewModel) {
         self.counterViewModel = counterViewModel
         super.init(nibName: nil, bundle: nil)
     }
@@ -51,7 +49,7 @@ class SecondViewController: UIViewController {
     }
     
     @objc func increaseCount() {
-        state.count += 1
+        counterViewModel.increaseCount()
     }
     
     @objc func goToFirstView() {

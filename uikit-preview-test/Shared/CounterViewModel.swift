@@ -29,3 +29,9 @@ extension CounterViewModel {
         return "Count: \(count)"
     }
 }
+
+extension CounterViewModel {
+    func increaseCount() {
+        state.count += 1
+    }
+}
