@@ -9,6 +9,7 @@ import Combine
 import Foundation
 
 class CounterViewModel: ObservableObject {
+    // Keep app state private, we only want to expose relevant fields to the view controller
     private var state: AppState
     private var cancellables = Set<AnyCancellable>()
     
@@ -16,17 +17,15 @@ class CounterViewModel: ObservableObject {
     // Marking this field as private because in this case we only want to expose the formatted string from the `countLabelText` property
     @Published private var count: Int = 0
     
+    // This is the public facing property that performs the "business logic" of what we need to do with the stored value (`count`) that we have
+    var countLabelText: String {
+        return "Count: \(count)"
+    }
+    
     init(state: AppState) {
         self.state = state
         // Assigning the field from state to a property on the ViewModel so that we don't have to expose the entire app state to the view controller
         state.$count.assign(to: \.count, on: self).store(in: &cancellables)
-    }
-}
-
-extension CounterViewModel {
-    // This is the public facing property that performs the "business logic" of what we need to do with the stored value (`count`) that we have
-    var countLabelText: String {
-        return "Count: \(count)"
     }
 }
 
