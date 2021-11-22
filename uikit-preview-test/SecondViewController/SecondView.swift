@@ -21,7 +21,7 @@ class SecondView: UIView {
     
     let label: UILabel = {
         let label = UILabel()
-        label.text = "0"
+        label.text = "Count: 0"
         label.font = .systemFont(ofSize: 20)
         
         return label
@@ -65,8 +65,7 @@ struct SecondViewViewRepresentable: UIViewRepresentable {
         return SecondView()
     }
     
-    func updateUIView(_ uiView: UIViewType, context: Context) {
-    }
+    func updateUIView(_ uiView: UIViewType, context: Context) { }
 }
 
 @available(iOS 13.0, *)

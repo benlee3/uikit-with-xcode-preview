@@ -45,7 +45,7 @@ class FirstView: UIView {
     
     let counter: UILabel = {
         let label = UILabel()
-        label.text = "0"
+        label.text = "Count: 0"
         label.font = .systemFont(ofSize: 20)
         
         return label
@@ -74,8 +74,7 @@ struct FirstViewViewRepresentable: UIViewRepresentable {
         return FirstView()
     }
     
-    func updateUIView(_ uiView: UIViewType, context: Context) {
-    }
+    func updateUIView(_ uiView: UIViewType, context: Context) { }
 }
 
 @available(iOS 13.0, *)
