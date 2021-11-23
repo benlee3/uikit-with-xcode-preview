@@ -35,15 +35,15 @@ class SecondViewController: UIViewController {
     }
     
     func setupView() {
-        secondView?.button.addTarget(self, action: #selector(increaseCount), for: .touchUpInside)
-        secondView?.button2.addTarget(self, action: #selector(goToFirstView), for: .touchUpInside)
-        bindToViewModel()
+        secondView?.increaseCountButton.addTarget(self, action: #selector(increaseCount), for: .touchUpInside)
+        secondView?.firstViewButton.addTarget(self, action: #selector(goToFirstView), for: .touchUpInside)
+        updateFromViewModel()
         self.counterViewModel.objectWillChange.sink {
-            self.bindToViewModel()
+            self.updateFromViewModel()
         }.store(in: &cancellables)
     }
     
-    func bindToViewModel() {
+    func updateFromViewModel() {
         secondView?.label.text = counterViewModel.countLabelText
         view.setNeedsLayout() // Not necessary for this example, but will be when creating new views or destorying views which requires the view to be laid out again
     }

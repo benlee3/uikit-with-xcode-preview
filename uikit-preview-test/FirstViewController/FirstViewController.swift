@@ -31,16 +31,16 @@ class FirstViewController: UIViewController {
     }
     
     func setupView() {
-        firstView?.button.addTarget(self, action: #selector(increaseCount), for: .touchUpInside)
+        firstView?.increaseCountButton.addTarget(self, action: #selector(increaseCount), for: .touchUpInside)
         firstView?.secondViewButton.addTarget(self, action: #selector(goToSecondViewController), for: .touchUpInside)
-        bindToViewModel()
+        updateFromViewModel()
 
         self.counterViewModel.objectWillChange.sink {
-            self.bindToViewModel()
+            self.updateFromViewModel()
         }.store(in: &cancellables)
     }
     
-    func bindToViewModel() {
+    func updateFromViewModel() {
         firstView?.counter.text = counterViewModel.countLabelText
         view.setNeedsLayout() // Not necessary for this example, but will be when creating new views or destorying views which requires the view to be laid out again
     }

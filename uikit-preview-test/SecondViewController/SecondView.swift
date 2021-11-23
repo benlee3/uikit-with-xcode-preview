@@ -27,7 +27,7 @@ class SecondView: UIView {
         return label
     }()
     
-    let button: UIButton = {
+    let increaseCountButton: UIButton = {
         let button = UIButton()
         button.setTitle("Increase Count!", for: .normal)
         button.anchor(widthConstant: 200, heightConstant: 70)
@@ -35,7 +35,7 @@ class SecondView: UIView {
         return button
     }()
     
-    let button2: UIButton = {
+    let firstViewButton: UIButton = {
         let button = UIButton()
         button.setTitle("Go to first view controller", for: .normal)
         button.anchor(heightConstant: 70)
@@ -49,8 +49,8 @@ class SecondView: UIView {
         self.backgroundColor = .white
         container.anchor(top: self.safeAreaLayoutGuide.topAnchor, left: self.safeAreaLayoutGuide.leftAnchor, bottom: self.safeAreaLayoutGuide.bottomAnchor, right: self.safeAreaLayoutGuide.rightAnchor)
         container.addArrangedSubview(label)
-        container.addArrangedSubview(button)
-        container.addArrangedSubview(button2)
+        container.addArrangedSubview(increaseCountButton)
+        container.addArrangedSubview(firstViewButton)
     }
     
     required init?(coder: NSCoder) {

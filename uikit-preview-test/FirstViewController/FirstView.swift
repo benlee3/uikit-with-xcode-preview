@@ -27,7 +27,7 @@ class FirstView: UIView {
         return label
     }()
     
-    let button: UIButton = {
+    let increaseCountButton: UIButton = {
         let button = UIButton()
         button.setTitle("Increase Count!", for: .normal)
         button.anchor(widthConstant: 200, heightConstant: 70)
@@ -58,7 +58,7 @@ class FirstView: UIView {
         container.anchor(top: self.safeAreaLayoutGuide.topAnchor, left: self.safeAreaLayoutGuide.leftAnchor, bottom: self.safeAreaLayoutGuide.bottomAnchor, right: self.safeAreaLayoutGuide.rightAnchor)
         container.addArrangedSubview(label)
         container.addArrangedSubview(counter)
-        container.addArrangedSubview(button)
+        container.addArrangedSubview(increaseCountButton)
         container.addArrangedSubview(secondViewButton)
     }
     
