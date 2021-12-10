@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		78E1AB1127630DDF0031D6A1 /* LateInit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78E1AB1027630DDF0031D6A1 /* LateInit.swift */; };
 		78F7803E2745901100BE44F6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78F7803D2745901100BE44F6 /* AppDelegate.swift */; };
 		78F780402745901100BE44F6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78F7803F2745901100BE44F6 /* SceneDelegate.swift */; };
 		78F780422745901100BE44F6 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78F780412745901100BE44F6 /* FirstViewController.swift */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		78E1AB1027630DDF0031D6A1 /* LateInit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LateInit.swift; sourceTree = "<group>"; };
 		78F7803A2745901100BE44F6 /* uikit-preview-test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "uikit-preview-test.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		78F7803D2745901100BE44F6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		78F7803F2745901100BE44F6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -49,6 +51,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		78E1AB0F27630D970031D6A1 /* PropertyWrappers */ = {
+			isa = PBXGroup;
+			children = (
+				78E1AB1027630DDF0031D6A1 /* LateInit.swift */,
+			);
+			path = PropertyWrappers;
+			sourceTree = "<group>";
+		};
 		78F780312745901100BE44F6 = {
 			isa = PBXGroup;
 			children = (
@@ -75,6 +85,7 @@
 				78F780512745907E00BE44F6 /* FirstViewController */,
 				78F7805A2747215800BE44F6 /* SecondViewController */,
 				78F78054274592A900BE44F6 /* Extensions */,
+				78E1AB0F27630D970031D6A1 /* PropertyWrappers */,
 				78F78062274865D100BE44F6 /* Shared */,
 				78F780462745901200BE44F6 /* Assets.xcassets */,
 				78F780482745901200BE44F6 /* LaunchScreen.storyboard */,
@@ -210,6 +221,7 @@
 				78F7803E2745901100BE44F6 /* AppDelegate.swift in Sources */,
 				78F78064274865E600BE44F6 /* CounterViewModel.swift in Sources */,
 				78F780592745CC2E00BE44F6 /* AppState.swift in Sources */,
+				78E1AB1127630DDF0031D6A1 /* LateInit.swift in Sources */,
 				78F7805C274721FA00BE44F6 /* SecondViewController.swift in Sources */,
 				78F780402745901100BE44F6 /* SceneDelegate.swift in Sources */,
 				78F78056274592CF00BE44F6 /* UIView+Anchor.swift in Sources */,

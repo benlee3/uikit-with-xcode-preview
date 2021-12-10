@@ -10,7 +10,8 @@ import Foundation
 
 class CounterViewModel: ObservableObject {
     // Keep app state private, we only want to expose relevant fields to the view controller
-    private var state: AppState
+//    private var state: AppState
+    private var store: Store<AppState, AppAction>
     private var cancellables = Set<AnyCancellable>()
     
     // Mark fields that are bound to the View/ViewController as `@Published` so that we can subscribe to any changes that occur to these fields via `objectWillChange`
@@ -22,15 +23,21 @@ class CounterViewModel: ObservableObject {
         return "Count: \(count)"
     }
     
-    init(state: AppState) {
-        self.state = state
+//    init(state: AppState) {
+    init(store: Store<AppState, AppAction>) {
+//        self.state = state
+        self.store = store
         // Assigning the field from state to a property on the ViewModel so that we don't have to expose the entire app state to the view controller
-        state.$count.assign(to: \.count, on: self).store(in: &cancellables)
+//        state.$count.assign(to: \.count, on: self).store(in: &cancellables)
+        store.$value.sink { [weak self] state in
+            self?.count = state.count
+        }.store(in: &cancellables)
     }
 }
 
 extension CounterViewModel {
     func increaseCount() {
-        state.count += 1
+//        state.count += 1
+        store.send(.increaseCount)
     }
 }

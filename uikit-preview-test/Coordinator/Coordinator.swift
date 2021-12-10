@@ -19,23 +19,23 @@ protocol Coordinator {
 class MainCoordinator: Coordinator {
     var childCoordinators = [Coordinator]()
     var navigationController: UINavigationController
-    var state: AppState
+    var store: Store<AppState, AppAction>
     var cancellables = Set<AnyCancellable>()
     
     init(navigationController: UINavigationController,
-         state: AppState) {
+         store: Store<AppState, AppAction>) {
         self.navigationController = navigationController
-        self.state = state
+        self.store = store
     }
     
     func start() {
-        let vc = FirstViewController(counterViewModel: CounterViewModel(state: self.state))
+        let vc = FirstViewController(counterViewModel: CounterViewModel(store: self.store))
         vc.coordinator = self
         navigationController.pushViewController(vc, animated: false)
         Timer.publish(every: 1, on: .main, in: .common)
             .autoconnect()
             .sink { [weak self] _ in
-                self?.state.count += 1
+                self?.store.send(.increaseCount)
             }.store(in: &cancellables)
     }
     
@@ -43,14 +43,14 @@ class MainCoordinator: Coordinator {
         if let viewController = checkNavigationStack(for: FirstViewController.self) {
             navigationController.popToViewController(viewController, animated: true)
         } else {
-            let vc = FirstViewController(counterViewModel: CounterViewModel(state: self.state))
+            let vc = FirstViewController(counterViewModel: CounterViewModel(store: self.store))
             vc.coordinator = self
             navigationController.pushViewController(vc, animated: true)
         }
     }
     
     func showSecondViewController() {
-        let vc = SecondViewController(counterViewModel: CounterViewModel(state: self.state))
+        let vc = SecondViewController(counterViewModel: CounterViewModel(store: self.store))
         vc.coordinator = self
         navigationController.pushViewController(vc, animated: true)
     }
