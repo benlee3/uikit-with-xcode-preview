@@ -7,16 +7,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "D4CD6B5E-13D1-4210-8477-43BF8D7C68C1"
-            shouldBeEnabled = "No"
+            uuid = "EA337828-C429-4F1E-9D73-D20F6D04969C"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "uikit-preview-test/Coordinator/Coordinator.swift"
+            filePath = "uikit-preview-test/Shared/CounterViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "38"
-            endingLineNumber = "38"
-            landmarkName = "start()"
+            startingLineNumber = "24"
+            endingLineNumber = "24"
+            landmarkName = "init(store:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

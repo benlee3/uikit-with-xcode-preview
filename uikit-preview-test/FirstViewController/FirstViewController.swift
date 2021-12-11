@@ -6,10 +6,11 @@
 //
 
 import Combine
+import Foundation
 import UIKit
 
 class FirstViewController: UIViewController {
-    var firstView: FirstView?
+    var firstView = FirstView()
     var counterViewModel: CounterViewModel
     var cancellables = Set<AnyCancellable>()
     weak var coordinator: MainCoordinator?
@@ -21,7 +22,6 @@ class FirstViewController: UIViewController {
     }
     
     override func loadView() {
-        firstView = FirstView()
         view = firstView
     }
     
@@ -31,17 +31,16 @@ class FirstViewController: UIViewController {
     }
     
     func setupView() {
-        firstView?.increaseCountButton.addTarget(self, action: #selector(increaseCount), for: .touchUpInside)
-        firstView?.secondViewButton.addTarget(self, action: #selector(goToSecondViewController), for: .touchUpInside)
-        updateFromViewModel()
-
-        self.counterViewModel.objectWillChange.sink {
-            self.updateFromViewModel()
-        }.store(in: &cancellables)
+        firstView.increaseCountButton.addTarget(self, action: #selector(increaseCount), for: .touchUpInside)
+        firstView.secondViewButton.addTarget(self, action: #selector(goToSecondViewController), for: .touchUpInside)
+        bindToViewModel()
     }
     
-    func updateFromViewModel() {
-        firstView?.counter.text = counterViewModel.countLabelText
+    func bindToViewModel() {
+        counterViewModel.$countText
+            .assign(to: \.text, on: firstView.counter)
+            .store(in: &cancellables)
+        
         view.setNeedsLayout() // Not necessary for this example, but will be when creating new views or destorying views which requires the view to be laid out again
     }
     
