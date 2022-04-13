@@ -21,7 +21,7 @@ class CounterViewModel: ObservableObject {
         /// Assigning the field from state to a property on the ViewModel so that we don't have to expose the entire app state to the view controller
         /// Performing the business logic of taking the "raw" `count` value and adding it to the `countTextTemplate` string value
         store.$value.compactMap { state in
-            String(format: CounterViewModel.countTextTemplate, String(state.count))
+            CounterViewModel.formatCounterTextString(count: state.count)
         }.assign(to: \.countText, on: self).store(in: &cancellables)
     }
 }
@@ -32,6 +32,13 @@ extension CounterViewModel {
     }
 }
 
-extension  CounterViewModel {
+extension CounterViewModel {
     static let countTextTemplate = "Count: %@"
+}
+
+extension CounterViewModel {
+    static func formatCounterTextString(count: Int) -> String {
+        let countString = String(count)
+        return String(format: countTextTemplate, countString)
+    }
 }
